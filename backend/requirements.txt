@@ -1,0 +1,7 @@
+Django==5.2.4
+djangorestframework==3.16.0
+djangorestframework-simplejwt==5.5.0
+django-cors-headers==4.7.0
+python-dotenv==1.0.0
+mysqlclient==2.2.7
+gunicorn==21.2.0 

@@ -1,0 +1,123 @@
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 11% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 210 11% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 210 11% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 145 100% 32%;
+    --primary-foreground: 210 11% 4%;
+
+    --secondary: 195 100% 50%;
+    --secondary-foreground: 210 11% 4%;
+
+    --muted: 210 11% 15%;
+    --muted-foreground: 210 40% 60%;
+
+    --accent: 145 100% 32%;
+    --accent-foreground: 210 11% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 11% 15%;
+    --input: 210 11% 15%;
+    --ring: 145 100% 32%;
+
+    --radius: 0.5rem;
+
+    --matrix-green: 145 100% 32%;
+    --electric-blue: 195 100% 50%;
+    --terminal-bg: 210 11% 8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glow {
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  }
+  
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+
+  .terminal-shadow {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-gradient {
+    background: linear-gradient(45deg, #00ff41, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(45deg, #00ff41, #00d4ff) 1;
+  }
+}
+
+/* Animations */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) }
+  50% { transform: translateY(-10px) }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 65, 0.3) }
+  50% { box-shadow: 0 0 30px rgba(0, 255, 65, 0.6) }
+}
+
+.typing-animation {
+  overflow: hidden;
+  border-right: 3px solid #00ff41;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
